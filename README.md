@@ -1,99 +1,100 @@
-NoAI: Reclaiming Authentic Social Media
+================================================================================
+Reclaiming Authentic Social Media
 
-Version: v0.1.0 (Prototype)
+VERSION: v0.2.0 (Prototype)
+DATE:    2025-11-30
 
-NoAI is a social media platform built on human creativity, direct capture, and genuine connection. It stands in radical contrast to current AI-driven networks by enforcing no AI filters, no generative AI, and no opaque algorithmic manipulation. The core experience prioritizes authenticity, spontaneity, and human-made expression.
+OVERVIEW
 
-1. Core Principles (Human-Made by Default)
+NoAI is a social media platform built on human creativity, direct capture, and
+genuine connection. It stands in radical contrast to current AI-driven networks
+by enforcing no AI filters, no generative AI, and no opaque algorithmic
+manipulation.
 
-Based on the founding vision, the application adheres to the following non-negotiable principles:
+The core experience prioritizes authenticity, spontaneity, and human-made
+expression.
 
-Direct Capture Only: All content is intended to be created directly through the device camera.
-
-Tools That Support: Editing features must be basic, assistive, and non-generative (e.g., crop, light color correction).
-
-Transparent Discovery: The feed is chronological or community-curated, never algorithmically ranked.
-
-Privacy-First Design: Minimal data capture and maximum user control.
-
-2. Current Prototype Functionality (v0.1.0)
-
-This React prototype, running in the Canvas environment, demonstrates the foundational data model and real-time feed mechanism using Google Cloud Firestore.
-
-Features Implemented:
-
-Firebase Authentication: Uses anonymous sign-in to instantly generate a unique userId for each session, allowing interaction with shared data.
-
-Persistent Public Feed: Posts are stored publicly in Firestore, ensuring real-time visibility across all users.
-
-Simulated Direct Capture: The main action button allows users to post a placeholder image (simulating a camera capture) with a basic caption and a timestamp.
-
-Transparent Discovery: The feed is displayed in strict chronological order (orderBy('timestamp', 'desc')), eliminating algorithmic curation.
-
-Community-Led Surfacing: Users can Like posts, with the like count visible, demonstrating a simple, human-driven signal over opaque ranking.
-
-Session ID Display: The full unique userId is displayed on the header for session identification and collaborative testing.
-
-3. Future Roadmap (Next Steps)
-
-The following features are planned to bring the app to full functionality, focusing on authentic social interaction and creative freedom:
-
-Feature
-
-Core Principle Addressed
-
-Description
-
-Full User Authentication
-
-Privacy/Authenticity
-
-Implement full registration and login (Email/Social) to replace anonymous sign-in, enabling persistent profiles and private data.
-
-Real Camera Integration
+CORE PRINCIPLES (Human-Made by Default)
 
 Direct Capture Only
-
-Integrate with the device's camera API (getUserMedia) to allow live photo/video capture (as opposed to placeholder images).
-
-Non-AI Image Editing Suite
+All content is intended to be created directly through the device camera.
 
 Tools That Support
-
-Implement basic, non-generative editing tools: crop, rotate, brightness, contrast, and manual color filters.
-
-Profile & Social Graph
-
-Genuine Connection
-
-Implement features to add friends and follow people, managing the user's social network and filtering the feed based on these connections.
-
-Transparent Topic Hubs
+Editing features must be basic, assistive, and non-generative
+(e.g., crop, light color correction).
 
 Transparent Discovery
-
-Create curated, non-algorithmic "Hubs" where users can browse content by human-assigned tags or topics.
-
-Private Data Storage
+The feed is chronological or community-curated, never algorithmically ranked.
 
 Privacy-First Design
+Minimal data capture and maximum user control.
 
-Implement features using the private user path (/artifacts/{appId}/users/{userId}/...) for settings, saved drafts, and private messages.
+CURRENT PROTOTYPE FEATURES (v0.2.0)
 
-In-App Messaging
+This prototype runs in a React Canvas environment and demonstrates the
+following functionalities:
 
-Genuine Connection
+[x] AUTHENTIC LOGIN FLOW
+- Dedicated Login Screen.
+- Visible demo credentials for testing ("demo_user_01").
+- Simulates secure entry while remaining accessible for prototype testing.
 
-Add a simple, direct messaging feature (DM) for one-to-one communication between connected users.
+[x] HUMAN-CENTRIC IMAGE EDITOR
+- Direct Capture/Upload: Integrates with device file system (camera).
+- Non-Generative Filters: Standard CSS filters (Warm, Cool, B&W, Vintage).
+- Hand Drawing: Canvas overlay for manual drawing on photos.
+- No Generative AI: Strictly prohibits AI-generated enhancements.
 
-4. Technical Stack
+[x] SOCIAL DISCOVERY & GRAPH
+- Discover People: Pre-populated list of "Authentic" dummy users.
+(e.g., Maya Creative, Liam Analog, Sarah Real).
+- Follow Mechanism: Ability to follow/unfollow users.
+- Community Signals: Simple "Like" counts without algorithmic weighting.
 
-Frontend: React (JSX)
+[x] PERSISTENT PUBLIC FEED
+- Real-time updates via Google Cloud Firestore.
+- Strictly chronological ordering (Newest first).
+- Displays user attribution and timestamps.
 
-Styling: Tailwind CSS
+[x] RESPONSIVE UI
+- Mobile-first design with bottom navigation.
+- Adaptive layout for desktop viewing.
 
-State Management: React Hooks (useState, useEffect, useCallback)
+ROADMAP (Future Steps)
 
-Database: Google Cloud Firestore (Real-time, persistent data storage)
++--------------------------+---------------------------+-----------------------+
+| FEATURE                  | PRINCIPLE                 | STATUS                |
++--------------------------+---------------------------+-----------------------+
+| Full User Auth           | Privacy/Authenticity      | [Partially Done]      |
+|                          |                           | (Demo Mode active)    |
++--------------------------+---------------------------+-----------------------+
+| Real Camera API          | Direct Capture Only       | [Partially Done]      |
+|                          |                           | (File Input used)     |
++--------------------------+---------------------------+-----------------------+
+| Non-AI Editing Suite     | Tools That Support        | [Implemented v0.2.0]  |
+|                          |                           | Filters + Drawing     |
++--------------------------+---------------------------+-----------------------+
+| Social Graph             | Genuine Connection        | [Implemented v0.2.0]  |
+|                          |                           | Basic Following       |
++--------------------------+---------------------------+-----------------------+
+| Transparent Topic Hubs   | Transparent Discovery     | [Planned]             |
++--------------------------+---------------------------+-----------------------+
+| Private Data Storage     | Privacy-First Design      | [Planned]             |
++--------------------------+---------------------------+-----------------------+
+| In-App Messaging         | Genuine Connection        | [Planned]             |
++--------------------------+---------------------------+-----------------------+
 
-Authentication: Firebase Auth (Anonymous/Custom Token)
+TECHNICAL STACK
+
+Frontend:         React (JSX)
+
+Styling:          Tailwind CSS
+
+State Management: React Hooks (useState, useEffect, useRef)
+
+Database:         Google Cloud Firestore (Real-time, persistent)
+
+Authentication:   Firebase Auth (Anonymous/Custom Token)
+
+================================================================================
+END OF README
